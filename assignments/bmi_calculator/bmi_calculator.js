@@ -2,15 +2,15 @@
 function BMICalculator(mass, height) {
     // Write your code here
     
-    if ((mass<=0) || (height<=0)){
-         return "INVALID INPUT"
-    }
+    if ((mass>0) && (height>0)){
+        var BMI = mass / (height * height)
+        return BMI  
+        
+        }
     
     else{
-        var BMI = mass / (height * height);
-        return BMI 
-
-    }
+        return "INVALID INPUT"
+      }
 }
 
 module.exports = BMICalculator;
