@@ -7,9 +7,16 @@ function favouriteMovie(operation, movie) {
         return movies
     }
     else{
+    if(operation==="remove"){
         movies.pop()
         return movies
+    }
+    else{
+        return movies
+    }
+
     }    
+
 }
 
 module.exports = favouriteMovie;
