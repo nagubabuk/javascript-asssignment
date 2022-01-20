@@ -1,6 +1,6 @@
 const BMICalculator = require("../assignments/bmi_calculator/bmi_calculator");
 
-describe('bmi_calculator', () => {
+describe .only('bmi_calculator', () => {
     test('Calculate BMI for mass 50 and height 5', () => {
         expect(BMICalculator(50, 5)).toBe(2);
     });
