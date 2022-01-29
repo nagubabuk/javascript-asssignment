@@ -1,3 +1,7 @@
+
+
+<script>
+
 function CreateObject(arr) {
     // Write your code here
    var resObj= {}
@@ -9,9 +13,13 @@ function CreateObject(arr) {
            var value=arr[i]
             resObj[key]=value
         }
+       
+
     }
 
     return resObj
 }
 
-module.exports = CreateObject;
+var arr=["firstName","Nagu","Kukkala","right"]
+console.log(CreateObject(arr))
+</script>
