@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <html>
+
+  <head>
+    <title>Todo List</title>
+  </head>
+
+<body>
+  <div>
+    <button type='submit' id="todo">To Do</button>
+    <button type='submit' id="accepted">Accepted</button>
+    <button type='submit' id="pending">pending</button>
+    <h1>Accepted</h1>
+    <p class="true-data"></p>
+    <br>
+    <h1>Pending</h1>
+    <p class="false-data"></p>
+  </div>
+
+</body>
+<script>
+  var todobutton = document.querySelector("#todo");
+  var abutton = document.querySelector("#accepted");
+  var pbutton = document.querySelector("#pending");
+  var trueData=document.querySelector(".true-data");
+  var falseData=document.querySelector('.false-data');
+
+  function dataTrue() {
+    trueData.innerHTML="";
+    falseData.innerText="";
+    fetch("https://jsonplaceholder.typicode.com/todos")
+      .then((Response) => {
+        return Response.json()
+      })
+      .then((completedata) => {
+        const dataTrue = JSON.stringify(completedata.filter((data) => data.completed))
+        trueData.innerHTML=dataTrue;
+      })
+  }
+
+  function dataFalse() {
+    trueData.innerHTML="";
+    falseData.innerText="";
+    fetch("https://jsonplaceholder.typicode.com/todos")
+      .then((Response) => {
+        return Response.json()
+      })
+      .then((completedata) => {
+        const dataFalse = JSON.stringify(completedata.filter((data) => !data.completed))
+        falseData.innerText=dataFalse;
+      })
+  }
+
+  function showData(){
+    dataTrue();
+    dataFalse();
+  }
+  abutton.addEventListener('click', dataTrue);
+  pbutton.addEventListener('click', dataFalse);
+  todobutton.addEventListener('click', showData);
+</script>
+
+</html>
